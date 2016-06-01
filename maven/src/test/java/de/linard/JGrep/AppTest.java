@@ -1,6 +1,5 @@
 package de.linard.JGrep;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -12,6 +11,7 @@ public class AppTest {
      */
     @Test
     public void testApp() {
-        Assert.assertTrue( true );
+    	String[] args = {"flower", "../../../../../test/java/de/linard/JGrep/resources/input.txt"};
+        new Jgrep(args);
     }
 }

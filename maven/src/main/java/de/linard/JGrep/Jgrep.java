@@ -7,14 +7,12 @@ import java.util.ArrayList;
 
 public class Jgrep {
 	// Input
-
 	private boolean iP;
 	private boolean lP;
 	private String key;
-
 	private final ArrayList<String> targets = new ArrayList<String>();
 
-	// Output
+	// For -l parameter
 	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
