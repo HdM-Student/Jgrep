@@ -7,67 +7,65 @@ import java.util.ArrayList;
 
 public class Jgrep {
 	// Input
-	private static final ArrayList<String> param = new ArrayList<String>();
-	private static String key;
-	private static final ArrayList<String> targets = new ArrayList<String>();
-	
+
+	private boolean iP;
+	private boolean lP;
+	private String key;
+
+	private final ArrayList<String> targets = new ArrayList<String>();
+
 	// Output
-	private static final ArrayList<String> files = new ArrayList<String>();
+	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		
-
-		init(args);
+		new Jgrep(args);
 	}
 
-	private static void init(String[] args) {
-		
+	public Jgrep(String[] args) {
 		// Sorts parameters
-				for (final String arg : args) {
-					if (arg.startsWith("-")) {
-						param.add(arg);
-					} else if (key == null) {
-						key = arg;
-					} else {
-						targets.add(arg);
-					}
+		for (final String arg : args) {
+			if (arg.startsWith("-")) {
+				switch (arg) {
+				case "-i": iP = true;
+				case "-l": lP = true;
 				}
-				
+			} else if (key == null) {
+				key = arg;
+			} else {
+				targets.add(arg);
+			}
+		}
+
 		// Stops program if no search term was given
 		if (key == null) {
 			System.out.println("No key argument!");
 			System.exit(-1);
 		}
-		
+
 		// Decides the case
 		if (targets.size() == 0) {
 			pipeline();
 		} else {
 			fileInput();
 		}
-		
-		// Outputs file names for -l parameter
-		for (final String file : files) {
-			System.out.println(file);
-		}
 	}
 
 	// Reads out output of previous command
-	private static void pipeline() {
+	private void pipeline() {
 		String line;
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			while ((line = br.readLine()) != null) {
 				grep(line, "System.in");
 			}
-			//br.close();
+			// br.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	// Reads out files
-	private static void fileInput() {
+	private void fileInput() {
 		for (final String target : targets) {
 			String line;
 			try {
@@ -83,22 +81,22 @@ public class Jgrep {
 	}
 
 	// Compares
-	private static void grep(String line, String target) {
-		String ILine = line;
-		String IKey = key;
+	private void grep(String line, String target) {
+		String iLine = line;
+		String iKey = key;
 
 		// -i parameter
-		if (param.contains("-i")) {
-			ILine = ILine.toLowerCase();
-			IKey = IKey.toLowerCase();
+		if (iP) {
+			iLine = iLine.toLowerCase();
+			iKey = iKey.toLowerCase();
 		}
 
-		if (ILine.contains(IKey)) {
+		if (iLine.contains(iKey)) {
 			// -l parameter
-			if (param.contains("-l")) {
+			if (lP) {
 				if (!files.contains(target)) {
 					files.add(target);
-					// files will be outputted at the end of init() method
+					System.out.println(files);
 				}
 				// No parameter
 			} else {
