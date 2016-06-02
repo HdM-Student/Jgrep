@@ -16,9 +16,10 @@ public class Jgrep {
 	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		new Jgrep(args);
+		new Jgrep(args); // Object will be destroyed immediately after Constructor call.
 	}
 
+	// Constructor
 	public Jgrep(String[] args) {
 		// Sorts parameters
 		for (final String arg : args) {
@@ -82,13 +83,15 @@ public class Jgrep {
 	private void grep(String line, String target) {
 		String iLine = line;
 		String iKey = key;
-
+		
+		// Pre-output
 		// -i parameter
 		if (iP) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
 		}
-
+		
+		// Output
 		if (iLine.contains(iKey)) {
 			// -l parameter
 			if (lP) {
@@ -96,7 +99,7 @@ public class Jgrep {
 					files.add(target);
 					System.out.println(files);
 				}
-				// No parameter
+			// No parameter
 			} else {
 				if (targets.size() > 1) {
 					System.out.print(target + ":");
