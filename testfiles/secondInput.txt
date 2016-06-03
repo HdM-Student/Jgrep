@@ -1,2 +1,0 @@
-Errors will show up in red.
-Let's start bug fixing
