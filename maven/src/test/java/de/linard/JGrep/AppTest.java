@@ -11,7 +11,7 @@ public class AppTest {
      */
     @Test
     public void testApp() {
-    	String[] args = {"flower", "../../../../../test/java/de/linard/JGrep/resources/input.txt"};
+    	String[] args = {"flower", "./target/test-classes/input.txt"};
         new Jgrep(args);
     }
 }
