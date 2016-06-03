@@ -22,15 +22,20 @@ public class Jgrep {
 	public Jgrep(String[] args) {
 		// Sorts parameters
 		for (final String arg : args) {
-			if (arg.startsWith("-")) {
-				switch (arg) {
-				case "-i": iP = true;
-				case "-l": lP = true;
+			switch (arg) {
+			case "-i":
+				iP = true;
+				break;
+			case "-l":
+				lP = true;
+				break;
+			default:
+				if (key == null) {
+					key = arg;
+				} else {
+					targets.add(arg);
 				}
-			} else if (key == null) {
-				key = arg;
-			} else {
-				targets.add(arg);
+				break;
 			}
 		}
 
