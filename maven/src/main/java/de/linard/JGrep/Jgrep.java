@@ -34,7 +34,7 @@ public class Jgrep {
 					break;
 				default:
 					System.out.println("Invalid parameter");
-					System.exit(-2);
+					System.exit(-1);
 					break;
 				}
 			} else if (key == null) {
@@ -47,7 +47,7 @@ public class Jgrep {
 		// Stops program if no search term was given
 		if (key == null) {
 			System.out.println("No key argument");
-			System.exit(-1);
+			System.exit(-2);
 		}
 
 		// Decides the case
@@ -83,9 +83,9 @@ public class Jgrep {
 				}
 				br.close();
 			} catch (Exception e) {
-				System.out.println(target);
-				System.out.println("Invalid file path");
-				// System.exit(-3);
+				System.out.println("Invalid file path:" + target);
+				System.exit(-3);
+				// DISCUSS no print
 				// e.printStackTrace();
 			}
 		}
