@@ -24,7 +24,7 @@ public class Jgrep {
 	public Jgrep(String[] args) {
 		// Sorts parameters
 		for (final String arg : args) {
-			if (arg.contains("-")) {
+			if (arg.startsWith("-")) {
 				switch (arg) {
 				case "-i":
 					iP = true;
@@ -35,14 +35,13 @@ public class Jgrep {
 				default:
 					System.out.println("Invalid parameter");
 					System.exit(-2);
+					break;
 				}
-			}
-			if (key == null) {
+			} else if (key == null) {
 				key = arg;
 			} else {
 				targets.add(arg);
 			}
-			break;
 		}
 
 		// Stops program if no search term was given
@@ -84,8 +83,9 @@ public class Jgrep {
 				}
 				br.close();
 			} catch (Exception e) {
+				System.out.println(target);
 				System.out.println("Invalid file path");
-				System.exit(-3);
+				// System.exit(-3);
 				// e.printStackTrace();
 			}
 		}
@@ -109,7 +109,7 @@ public class Jgrep {
 			if (lP) {
 				if (!files.contains(target)) {
 					files.add(target);
-					System.out.println(files);
+					System.out.println(target);
 				}
 				// No parameter
 			} else {
