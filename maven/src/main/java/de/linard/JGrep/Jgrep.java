@@ -16,33 +16,38 @@ public class Jgrep {
 	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		new Jgrep(args); // Object will be destroyed immediately after Constructor call.
+		new Jgrep(args); // Object will be destroyed immediately after
+							// Constructor call.
 	}
 
-	// Constructor
+	// Constructor - prev. init()
 	public Jgrep(String[] args) {
 		// Sorts parameters
 		for (final String arg : args) {
-			switch (arg) {
-			case "-i":
-				iP = true;
-				break;
-			case "-l":
-				lP = true;
-				break;
-			default:
-				if (key == null) {
-					key = arg;
-				} else {
-					targets.add(arg);
+			if (arg.contains("-")) {
+				switch (arg) {
+				case "-i":
+					iP = true;
+					break;
+				case "-l":
+					lP = true;
+					break;
+				default:
+					System.out.println("Invalid parameter");
+					System.exit(-2);
 				}
-				break;
 			}
+			if (key == null) {
+				key = arg;
+			} else {
+				targets.add(arg);
+			}
+			break;
 		}
 
 		// Stops program if no search term was given
 		if (key == null) {
-			System.out.println("No key argument!");
+			System.out.println("No key argument");
 			System.exit(-1);
 		}
 
@@ -79,7 +84,9 @@ public class Jgrep {
 				}
 				br.close();
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.out.println("Invalid file path");
+				System.exit(-3);
+				// e.printStackTrace();
 			}
 		}
 	}
@@ -88,14 +95,14 @@ public class Jgrep {
 	private void grep(String line, String target) {
 		String iLine = line;
 		String iKey = key;
-		
+
 		// Pre-output
 		// -i parameter
 		if (iP) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
 		}
-		
+
 		// Output
 		if (iLine.contains(iKey)) {
 			// -l parameter
@@ -104,7 +111,7 @@ public class Jgrep {
 					files.add(target);
 					System.out.println(files);
 				}
-			// No parameter
+				// No parameter
 			} else {
 				if (targets.size() > 1) {
 					System.out.print(target + ":");
