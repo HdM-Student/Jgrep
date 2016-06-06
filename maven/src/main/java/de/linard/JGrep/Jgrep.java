@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Jgrep {
 	// Input
-	private boolean iP;
-	private boolean lP;
+	private boolean iP = false;
+	private boolean lP = false;
 	private String key;
 	private final ArrayList<String> targets = new ArrayList<String>();
 
@@ -33,8 +33,8 @@ public class Jgrep {
 					lP = true;
 					break;
 				default:
-					System.out.println("Invalid parameter");
-					System.exit(-1);
+					// throw new IllegalArgumentException("Invalid option");
+					System.out.println("Invalid option: \"" + arg + "\"! Result without that Option:");
 					break;
 				}
 			} else if (key == null) {
@@ -46,8 +46,7 @@ public class Jgrep {
 
 		// Stops program if no search term was given
 		if (key == null) {
-			System.out.println("No key argument");
-			System.exit(-2);
+			throw new IllegalArgumentException("No key argument");
 		}
 
 		// Decides the case
@@ -83,8 +82,7 @@ public class Jgrep {
 				}
 				br.close();
 			} catch (Exception e) {
-				System.out.println("Invalid file path:" + target);
-				System.exit(-3);
+				throw new IllegalArgumentException("Invalid file path:" + target);
 				// DISCUSS no print
 				// e.printStackTrace();
 			}
