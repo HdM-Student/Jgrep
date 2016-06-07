@@ -13,7 +13,7 @@ public class Jgrep {
 	private final ArrayList<String> targets = new ArrayList<String>();
 
 	// For -l parameter
-	private final ArrayList<String> files = new ArrayList<String>();
+//	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
 		new Jgrep(args); // Object will be destroyed immediately after
@@ -73,16 +73,19 @@ public class Jgrep {
 
 	// Reads out files
 	private void fileInput() {
-		for (final String target : targets) {
+		fileread: for (final String target : targets) {
 			String line;
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(target));
 				while ((line = br.readLine()) != null) {
-					grep(line, target);
+					Boolean b = grep(line, target);
+					if (b) {
+						continue fileread;
+					}
 				}
 				br.close();
 			} catch (Exception e) {
-				throw new IllegalArgumentException("Invalid file path:" + target);
+				throw new IllegalArgumentException("Invalid file path: " + target);
 				// DISCUSS no print
 				// e.printStackTrace();
 			}
@@ -90,7 +93,7 @@ public class Jgrep {
 	}
 
 	// Compares
-	private void grep(String line, String target) {
+	private boolean grep(String line, String target) {
 		String iLine = line;
 		String iKey = key;
 
@@ -105,18 +108,24 @@ public class Jgrep {
 		if (iLine.contains(iKey)) {
 			// -l parameter
 			if (lP) {
-				if (!files.contains(target)) {
-					files.add(target);
-					System.out.println(target);
-				}
+				System.out.println(target);
+				return true;
+				
+//				if (!files.contains(target)) {
+//					files.add(target);
+//					System.out.println(target);
+//					
+//				}
 				// No parameter
 			} else {
 				if (targets.size() > 1) {
 					System.out.print(target + ":");
 				}
 				System.out.println(line);
+				return false;
 			}
 		}
+		return false;
 	}
 
 }
