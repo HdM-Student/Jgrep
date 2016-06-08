@@ -1,9 +1,14 @@
-package de.linard.JGrep;
+package de.se1p04.jgrep;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+
+// TODO Write & export Javadoc
+
+// Export jar & update installation files (bashrc & jgrep command)
+
 
 public class Jgrep {
 	// Input

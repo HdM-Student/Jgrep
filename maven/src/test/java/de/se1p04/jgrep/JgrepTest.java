@@ -1,6 +1,6 @@
 // Do not format! It will fuck everything up!
 
-package de.linard.JGrep;
+package de.se1p04.jgrep;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import de.se1p04.jgrep.Jgrep;
 
 public class JgrepTest {
 	
@@ -381,6 +383,8 @@ public class JgrepTest {
 		Assert.assertEquals("./target/test-classes/input.txt\n./target/test-classes/secondInput.txt\n./target/test-classes/input.txt\n./target/test-classes/secondInput.txt\n", outContent.toString());
 	}
 
+	// TODO Export Javadoc
+	
 	
 	// Exercise examples
 		/*
@@ -391,6 +395,7 @@ public class JgrepTest {
 		 * - write tests for further methods?: grep(), constructor?
 		 * - Run Method with "null"-Parameter -> throws NullPointerException
 		 * - write some more tests for fine working examples?
+		 * - Write test for different file types.
 		 * 
 		 * Already implemented:
 		 * + Invalid parameters (FAIL: sys.exit -1)
