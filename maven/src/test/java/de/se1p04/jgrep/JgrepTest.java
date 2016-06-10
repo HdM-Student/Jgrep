@@ -38,17 +38,16 @@ public class JgrepTest {
 	// Tests
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm and one file
 	 * 
-	 * Test Jgrep main-Method with one Searchterm and one File
-	 * parameters: 'flower ./target/test-classes/input.txt'
+	 * <p><b>parameters:</b> 'flower ./target/test-classes/input.txt'
 	 * 
-	 * searchterm: 'flower'
-	 * file:	'./target/test-classes/input.txt'
+	 * <p><b>searchterm:</b> 'flower'
+	 * <br><b>file:</b>	'./target/test-classes/input.txt'
 	 * 
-	 * Expected Output:
-	 * 			Roses are nice flowers.
-	 * 			Mayflower used to be a ship.
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;Roses are nice flowers.
+	 * 		<br>&emsp;Mayflower used to be a ship.
 	 */
 	@Test
 	public void testJgrepMainNoOptionsOneSearchtermLowercaseOneFile() {
@@ -57,18 +56,17 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, one option and one file
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, one Option and one File
-	 * parameters: '-i red ./target/test-classes/input.txt'
+	 * <p><b>parameters:</b> '-i red ./target/test-classes/input.txt'
 	 * 
-	 * searchterm: 'red'
-	 * option: '-i'
-	 * file:	'./target/test-classes/input.txt'
+	 * <p><b>searchterm:</b> 'red'
+	 * <br><b>option:</b> '-i'
+	 * <br><b>file:</b>	'./target/test-classes/input.txt'
 	 * 
-	 * Expected Output:
-	 * 			Red wine is tasty
-	 * 			The red cross acts worldwide
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;Red wine is tasty
+	 * 		<br>&emsp;The red cross acts worldwide
 	 */
 	@Test
 	public void testJgrepMainIOptionOneSearchtermLowercaseOneFile() {
@@ -77,20 +75,20 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, one option and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, one Option and two Files
-	 * parameters: '-i RED ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> '-i RED ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterm: 'RED'
-	 * option: '-i'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterm:</b> 'RED'
+	 * <br><b>option:</b> '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt:Red wine is tasty
-	 * 			./target/test-classes/input.txt:The red cross acts worldwide
-	 * 			./target/test-classes/secondInput.txt:Errors will show up in red.
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt:Red wine is tasty
+	 * 		<br>&emsp;./target/test-classes/input.txt:The red cross acts worldwide
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt:Errors will show up in red.
 	 */
 	@Test
 	public void testJgrepMainIOptionOneSearchtermUppercaseTwoFiles() {
@@ -99,18 +97,18 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, one option and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, one Option and two Files
-	 * parameters: '-l Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> '-l Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterm: 'Red'
-	 * option: '-l'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterm:</b> 'Red'
+	 * <br><b>option:</b> '-l'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt
 	 */
 	@Test
 	public void testJgrepMainLOptionOneSearchtermMixcaseTwoFiles() {
@@ -119,18 +117,19 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, two options and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, two Options and two Files
-	 * parameters: '-l -i Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> '-l -i Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterm: 'Red'
-	 * options: '-l -i'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterm:</b> 'Red'
+	 * <br><b>options:</b> '-l', '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt
-	 * 			./target/test-classes/secondInput.txt
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt
 	 */
 	@Test
 	public void testJgrepMainLIOptionOneSearchtermMixcaseTwoFiles() {
@@ -139,37 +138,36 @@ public class JgrepTest {
 	}
 	
 	/**
-	 * 
 	 * Test Jgrep main-Method with invalid parameters
-	 * parameters: '-u Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * option: '-u'
-	 * searchterm: 'Red'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> '-u Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			Invalid option: "-u"! Result without that Option:
-	 * 			./target/test-classes/input.txt:Red wine is tasty
+	 * <p><b>searchterm:</b> 'Red'
+	 * <br><b>option:</b> '-u'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;Invalid option: "-u"! Result without that option:
+	 * 		<br>&emsp;./target/test-classes/input.txt:Red wine is tasty
 	 */
 	@Test
 	public void testJgrepMainInvalidOptionOneSearchtermMixcaseTwoFiles() {
 		Jgrep.main("-u Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
-		Assert.assertEquals("Invalid option: \"-u\"! Result without that Option:\n./target/test-classes/input.txt:Red wine is tasty\n", outContent.toString());
+		Assert.assertEquals("Invalid option: \"-u\"! Result without that option:\n./target/test-classes/input.txt:Red wine is tasty\n", outContent.toString());
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm and a nonexistent file
 	 * 
-	 * Test Jgrep main-Method with one Searchterm and a nonexistent File
-	 * parameters: 'test ./this/path/doesNotExist.txt'
+	 * <p><b>parameters:</b> 'test ./this/path/doesNotExist.txt'
 	 * 
-	 * searchterm: 'test'
-	 * file:	'./this/path/doesNotExist.txt' (nonexistent file)
+	 * <p><b>searchterm:</b> 'test'
+	 * <br><b>file:</b>	'./this/path/doesNotExist.txt' (nonexistent file)
 	 * 
-	 * Expected Output:
-	 * 			IllegalArgumentException: 'Invalid file path: ./this/path/doesNotExist.txt'
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: ./this/path/doesNotExist.txt'
 	 */
 	@Test
 	public void testJgrepMainNoOptionOneSearchtermLowercaseInvalidFile() throws IllegalArgumentException {
@@ -179,18 +177,18 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm (special character) and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm (special character) and two Files
-	 * parameters: '$ ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
+	 * <p><b>parameters:</b> '$ ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
 	 * 
-	 * searchterm: '$'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/thirdInput.txt'
+	 * <p><b>searchterm:</b> '$'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/thirdInput.txt:#!\"§$%&/()=?^€
-	 * 			./target/test-classes/thirdInput.txt:€$¥
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:#!\"§$%&/()=?^€
+	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:€$¥
 	 */
 	@Test
 	public void testJgrepMainNoOptionOneSearchtermSpecialcharDollarTwoFiles() {
@@ -199,17 +197,17 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm (special character) and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm (special character) and two Files
-	 * parameters: '© ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
+	 * <p><b>parameters:</b> '© ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
 	 * 
-	 * searchterm: '©'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/thirdInput.txt'
+	 * <p><b>searchterm:</b> '©'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/thirdInput.txt:© Linard, Dominik, Timo
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:© Linard, Dominik, Timo
 	 */
 	@Test
 	public void testJgrepMainNoOptionOneSearchtermSpecialcharCopyrightTwoFiles() {
@@ -218,17 +216,17 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm (special character) and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm (special character) and two Files
-	 * parameters: '½ ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
+	 * <p><b>parameters:</b> '½ ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt'
 	 * 
-	 * searchterm: '½'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/thirdInput.txt'
+	 * <p><b>searchterm:</b> '½'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/thirdInput.txt:½+¼=¾?
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:½+¼=¾?
 	 */
 	@Test
 	public void testJgrepMainNoOptionOneSearchtermSpecialcharHalfTwoFiles() {
@@ -237,15 +235,14 @@ public class JgrepTest {
 	}
 
 	/**
+	 * Test Jgrep main-Method without searchterm and files
 	 * 
-	 * Test Jgrep main-Method without Searchterm and Files
-	 * parameters: '-l -i'
+	 * <p><b>parameters:</b> '-l -i'
 	 * 
-	 * options: '-l -i'
+	 * <p><b>options:</b> '-l', '-i'
 	 * 
-	 * Expected Output:
-	 * 			IllegalArgumentException: 'No key argument'
-	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;IllegalArgumentException: 'No key argument'
 	 */
 	@Test
 	public void testJgrepMainLIOptionNoSearchtermNoFile() throws IllegalArgumentException {
@@ -255,18 +252,19 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, two options and two files, but wrong parameter-order
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, two Options and two Files, but wrong parameter-order
-	 * parameters: 'red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i'
+	 * <p><b>parameters:</b> 'red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i'
 	 * 
-	 * searchterm: 'red'
-	 * options: '-l -i'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterm:</b> 'red'
+	 * <br><b>options:</b> '-l', '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt
-	 * 			./target/test-classes/secondInput.txt
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt
 	 */
 	@Test
 	public void testJgrepMainWrongOptionOrderOneSearchtermLowercaseTwoFiles() {
@@ -275,17 +273,18 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, two options and two files, but wrong parameter-order
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, two Options and two Files, but wrong parameter-order
-	 * parameters: './target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i red'
+	 * <p><b>parameters:</b> './target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i red'
 	 * 
-	 * searchterm: 'red'
-	 * options: '-l -i'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterm:</b> 'red'
+	 * <br><b>options:</b> '-l', '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			IllegalArgumentException: 'Invalid file path: red'
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: red'
 	 */
 	@Test
 	public void testJgrepMainLIOptionOneSearchtermWrongOrderLowercaseTwoFiles() throws IllegalArgumentException {
@@ -295,16 +294,17 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with two searchterms (not allowed!) and two files
 	 * 
-	 * Test Jgrep main-Method with two Searchterms (not allowed!) and two Files
-	 * parameters: 'red green ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> 'red green ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterms: 'red green'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterms:</b> 'red', 'green'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			IllegalArgumentException: 'Invalid file path: green'
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: green'
 	 */
 	@Test
 	public void testJgrepMainNoOptionTwoSearchtermsLowercaseTwoFiles() throws IllegalArgumentException {
@@ -314,18 +314,19 @@ public class JgrepTest {
 	}
 
 	/**
+	 * Test Jgrep main-Method with one searchterm, five options and two files
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, five Options and two Files
-	 * parameters: 'red -i -l -i -l -l ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> 'red -i -l -i -l -l ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterms: 'red'
-	 * options: '-i -l -i -l -l'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterms:</b> 'red'
+	 * <br><b>options:</b> '-i', '-l', '-i', '-l', -l'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt
-	 * 			./target/test-classes/secondInput.txt
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt
 	 */
 	@Test
 	public void testJgrepMainRepeatOptionsOneSearchtermLowercaseTwoFiles() {
@@ -334,23 +335,25 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, one option and four files (duplicates)
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, one Option and four Files (duplicates)
-	 * parameters: 'red -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> 'red -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterms: 'red'
-	 * options: '-i'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
-	 * 			'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterms:</b> 'red'
+	 * <br><b>options:</b> '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt:Red wine is tasty
-	 * 			./target/test-classes/input.txt:The red cross acts worldwide
-	 * 			./target/test-classes/secondInput.txt:Errors will show up in red.
-	 * 			./target/test-classes/input.txt:Red wine is tasty\n./target/test-classes/input.txt:The red cross acts worldwide
-	 * 			./target/test-classes/secondInput.txt:Errors will show up in red.
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt:Red wine is tasty
+	 * 		<br>&emsp;./target/test-classes/input.txt:The red cross acts worldwide
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt:Errors will show up in red.
+	 * 		<br>&emsp;./target/test-classes/input.txt:Red wine is tasty
+	 * 		<br>&emsp;./target/test-classes/input.txt:The red cross acts worldwide
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt:Errors will show up in red.
 	 */
 	@Test
 	public void testJgrepMainIOptionOneSearchtermLowercaseTwoFilesRepeated() {
@@ -359,22 +362,23 @@ public class JgrepTest {
 	}
 	
 	/**
+	 * Test Jgrep main-Method with one searchterm, two options and four files (duplicates)
 	 * 
-	 * Test Jgrep main-Method with one Searchterm, two Options and four Files (duplicates)
-	 * parameters: 'red -i -l ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
+	 * <p><b>parameters:</b> 'red -i -l ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/input.txt ./target/test-classes/secondInput.txt'
 	 * 
-	 * searchterms: 'red'
-	 * options: '-i -l'
-	 * files:	'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
-	 * 			'./target/test-classes/input.txt'
-	 * 			'./target/test-classes/secondInput.txt'
+	 * <p><b>searchterms:</b> 'red'
+	 * <br><b>options:</b> '-i -l'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
-	 * Expected Output:
-	 * 			./target/test-classes/input.txt
-	 * 			./target/test-classes/secondInput.txt
-	 * 			./target/test-classes/input.txt
-	 * 			./target/test-classes/secondInput.txt
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt
+	 * 		<br>&emsp;./target/test-classes/input.txt
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt
 	 * 
 	 */
 	@Test

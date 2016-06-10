@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class Jgrep {
 	// Input
-	private boolean iP = false;
-	private boolean lP = false;
+	private boolean iO = false;
+	private boolean lO = false;
 	private String key;
 	private final ArrayList<String> targets = new ArrayList<String>();
 
@@ -32,14 +32,14 @@ public class Jgrep {
 			if (arg.startsWith("-")) {
 				switch (arg) {
 				case "-i":
-					iP = true;
+					iO = true;
 					break;
 				case "-l":
-					lP = true;
+					lO = true;
 					break;
 				default:
 					// throw new IllegalArgumentException("Invalid option");
-					System.out.println("Invalid option: \"" + arg + "\"! Result without that Option:");
+					System.out.println("Invalid <br><b>option:</b> \"" + arg + "\"! Result without that option:");
 					break;
 				}
 			} else if (key == null) {
@@ -83,8 +83,8 @@ public class Jgrep {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(target));
 				while ((line = br.readLine()) != null) {
-					Boolean b = grep(line, target);
-					if (b) {
+					Boolean con = grep(line, target);
+					if (con) {
 						continue fileread;
 					}
 				}
@@ -104,7 +104,7 @@ public class Jgrep {
 
 		// Pre-output
 		// -i option
-		if (iP) {
+		if (iO) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
 		}
@@ -112,7 +112,7 @@ public class Jgrep {
 		// Output
 		if (iLine.contains(iKey)) {
 			// -l option
-			if (lP) {
+			if (lO) {
 				System.out.println(target);
 				return true;
 				
