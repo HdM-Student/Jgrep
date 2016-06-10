@@ -39,7 +39,7 @@ public class Jgrep {
 					break;
 				default:
 					// throw new IllegalArgumentException("Invalid option");
-					System.out.println("Invalid <br><b>option:</b> \"" + arg + "\"! Result without that option:");
+					System.out.println("Invalid option: \"" + arg + "\"! Result without that option:");
 					break;
 				}
 			} else if (key == null) {
