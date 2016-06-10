@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 // TODO Write & export Javadoc
 
-// Export jar & update installation files (bashrc & jgrep command)
+// TODO Export jar & update installation files (bashrc & jgrep command)
 
 
 public class Jgrep {
@@ -17,12 +17,12 @@ public class Jgrep {
 	private String key;
 	private final ArrayList<String> targets = new ArrayList<String>();
 
-	// For -l parameter
+	// For -l option
 //	private final ArrayList<String> files = new ArrayList<String>();
 
 	public static void main(String[] args) {
-		new Jgrep(args); // Object will be destroyed immediately after
-							// Constructor call.
+		new Jgrep(args); // Object will be destroyed immediately
+							// after Constructor call.
 	}
 
 	// Constructor - prev. init()
@@ -49,7 +49,7 @@ public class Jgrep {
 			}
 		}
 
-		// Stops program if no search term was given
+		// Stops program if no searchterm was given
 		if (key == null) {
 			throw new IllegalArgumentException("No key argument");
 		}
@@ -103,7 +103,7 @@ public class Jgrep {
 		String iKey = key;
 
 		// Pre-output
-		// -i parameter
+		// -i option
 		if (iP) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
@@ -111,7 +111,7 @@ public class Jgrep {
 
 		// Output
 		if (iLine.contains(iKey)) {
-			// -l parameter
+			// -l option
 			if (lP) {
 				System.out.println(target);
 				return true;
@@ -121,7 +121,7 @@ public class Jgrep {
 //					System.out.println(target);
 //					
 //				}
-				// No parameter
+				// No option
 			} else {
 				if (targets.size() > 1) {
 					System.out.print(target + ":");
