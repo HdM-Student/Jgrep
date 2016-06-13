@@ -68,7 +68,7 @@ public class Jgrep {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			while ((line = br.readLine()) != null) {
-				grep(line, "System.in");
+				grep(line, "(Standard Input)");
 			}
 			// br.close();
 		} catch (Exception e) {

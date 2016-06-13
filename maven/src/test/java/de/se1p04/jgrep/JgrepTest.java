@@ -229,7 +229,7 @@ public class JgrepTest {
 	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:½+¼=¾?
 	 */
 	@Test
-	public void testJgrepMainNoOptionOneSearchtermSpecialcharHalfTwoFiles() {
+	public void testJgrepMainNoOptionsOneSearchtermSpecialcharHalfTwoFiles() {
 		Jgrep.main("½ ./target/test-classes/input.txt ./target/test-classes/thirdInput.txt".split(" "));
 		Assert.assertEquals("./target/test-classes/thirdInput.txt:½+¼=¾?\n", outContent.toString());
 	}
@@ -245,7 +245,7 @@ public class JgrepTest {
 	 * 		<br>&emsp;IllegalArgumentException: 'No key argument'
 	 */
 	@Test
-	public void testJgrepMainLIOptionNoSearchtermNoFile() throws IllegalArgumentException {
+	public void testJgrepMainLIOptionsNoSearchtermNoFile() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
 	    thrown.expectMessage("No key argument");
 	    Jgrep.main("-l -i".split(" "));
@@ -287,7 +287,7 @@ public class JgrepTest {
 	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: red'
 	 */
 	@Test
-	public void testJgrepMainLIOptionOneSearchtermWrongOrderLowercaseTwoFiles() throws IllegalArgumentException {
+	public void testJgrepMainLIOptionsOneSearchtermWrongOrderLowercaseTwoFiles() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
 	    thrown.expectMessage("Invalid file path: red");
 		Jgrep.main("./target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i red".split(" "));
@@ -307,7 +307,7 @@ public class JgrepTest {
 	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: green'
 	 */
 	@Test
-	public void testJgrepMainNoOptionTwoSearchtermsLowercaseTwoFiles() throws IllegalArgumentException {
+	public void testJgrepMainNoOptionsTwoSearchtermsLowercaseTwoFiles() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
 	    thrown.expectMessage("Invalid file path: green");
 		Jgrep.main("red green ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
@@ -382,33 +382,94 @@ public class JgrepTest {
 	 * 
 	 */
 	@Test
-	public void testJgrepMainILOptionOneSearchtermLowercaseTwoFilesDuplicate() {
+	public void testJgrepMainILOptionsOneSearchtermLowercaseTwoFilesDuplicate() {
 		Jgrep.main("red -i -l ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
 		Assert.assertEquals("./target/test-classes/input.txt\n./target/test-classes/secondInput.txt\n./target/test-classes/input.txt\n./target/test-classes/secondInput.txt\n", outContent.toString());
 	}
+	
+	/**
+	 * Test Jgrep main-Method with one searchterm, one option and three files
+	 * 
+	 * <p><b>parameters:</b> 'error -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>searchterms:</b> 'red'
+	 * <br><b>option:</b> '-i'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt:Errors will show up in red.
+	 * 
+	 */
+	@Test
+	public void testJgrepMainIOptionOneSearchtermLowercaseThreeFiles() {
+		Jgrep.main("error -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt".split(" "));
+		Assert.assertEquals("./target/test-classes/secondInput.txt:Errors will show up in red.\n", outContent.toString());
+	}
+	
+	/**
+	 * Test Jgrep main-Method with one searchterm and three files
+	 * 
+	 * <p><b>parameters:</b> 'worldwide ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>searchterms:</b> 'worldwide'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/secondInput.txt:Errors will show up in red.
+	 * 
+	 */
+	@Test
+	public void testJgrepMainNoOptionsOneSearchtermLowercaseThreeFiles() {
+		Jgrep.main("worldwide ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt".split(" "));
+		Assert.assertEquals("./target/test-classes/input.txt:The red cross acts worldwide\n", outContent.toString());
+	}
+	
+	/**
+	 * Test Jgrep main-Method with one searchterm, one option and three files
+	 * 
+	 * <p><b>parameters:</b> 'fLoWerS -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>searchterms:</b> 'fLoWerS'
+	 * <br><b>files:</b>
+	 * 		<br>&emsp;'./target/test-classes/input.txt'
+	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
+	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
+	 * 
+	 * <p><b>expected output:</b>
+	 * 		<br>&emsp;./target/test-classes/input.txt:Roses are nice flowers.
+	 * 
+	 */
+	@Test
+	public void testJgrepMainIOptionOneSearchtermMixcaseThreeFiles() {
+		Jgrep.main("fLoWerS -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt".split(" "));
+		Assert.assertEquals("./target/test-classes/input.txt:Roses are nice flowers.\n", outContent.toString());
+	}
+
 
 	// TODO Export Javadoc
-	
 	
 	// Exercise examples
 		/*
 		 * TODO Implement special cases that might be problematic
 		 * - <Test idea> <(Expected result)>
 		 * 
-		 * + write comments
-		 * - write tests for further methods?: grep(), constructor?
-		 * - Run Method with "null"-Parameter -> throws NullPointerException
-		 * - write some more tests for fine working examples?
-		 * - Write test for different file types.
-		 * 
 		 * Already implemented:
 		 * + Invalid parameters (FAIL: sys.exit -1)
 		 * + No search key (FAIL: sys.exit -2)
 		 * + Invalid paths (FAIL: sys.exit -3)
 		 * + Invalid search keys (? - Are there even invalid search characters?)
-		 * + Wrong order of arguments (PASS: Parameter placement shouldn't matter) DISCUSS
+		 * + Wrong order of arguments (PASS: Parameter placement shouldn't matter)
 		 * + Two search keys (FAIL: Second one should be interpreted as a path -> sys.exit -2)
-		 * + Same parameters twice (PASS: Should not matter. Boolean will be set from 'true' to 'true') DISCUSS
+		 * + Same parameters twice (PASS: Should not matter. Boolean will be set from 'true' to 'true')
+		 * + write comments
+		 * + write some more tests for fine working examples?
+		 * + Write test for different file types. -> delete, cause it isn't working like expected. Or: Raise exception, when file isn't a .txt
 		 * 
 		 */
 }
