@@ -1,5 +1,3 @@
-// Do not format! It will fuck everything up!
-
 package de.se1p04.jgrep;
 
 import java.io.ByteArrayOutputStream;
@@ -155,13 +153,13 @@ public class JgrepTest {
 	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
 	 * <p><b>expected output:</b>
-	 * 		<br>&emsp;Invalid option: "-u"! Result without that option:
-	 * 		<br>&emsp;./target/test-classes/input.txt:Red wine is tasty
+	 * 		<br>&emsp;IllegalArgumentException: 'jgrep: invalid option -- 'u'. Usage: jgrep [OPTION]... PATTERN [FILE]...'
 	 */
 	@Test
 	public void testJgrepMainInvalidOptionOneSearchtermMixcaseTwoFiles() {
-		Jgrep.main("-u Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
-		Assert.assertEquals("Invalid option: \"-u\"! Result without that option:\n./target/test-classes/input.txt:Red wine is tasty\n", outContent.toString());
+	    thrown.expect(IllegalArgumentException.class);
+	    thrown.expectMessage("jgrep: invalid option -- 'u'\nUsage: jgrep [OPTION]... PATTERN [FILE]...");
+	    Jgrep.main("-u Red ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
 	}
 	
 	/**
@@ -178,7 +176,7 @@ public class JgrepTest {
 	@Test
 	public void testJgrepMainNoOptionOneSearchtermLowercaseInvalidFile() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
-	    thrown.expectMessage("Invalid file path: ./this/path/doesNotExist.txt");
+	    thrown.expectMessage("jgrep: ./this/path/doesNotExist.txt: No such file or directory");
 	    Jgrep.main("test ./this/path/doesNotExist.txt".split(" "));
 	}
 	
@@ -248,12 +246,12 @@ public class JgrepTest {
 	 * <p><b>options:</b> '-l', '-i'
 	 * 
 	 * <p><b>expected output:</b>
-	 * 		<br>&emsp;IllegalArgumentException: 'No key argument'
+	 * 		<br>&emsp;IllegalArgumentException: 'Usage: jgrep [OPTION]... PATTERN [FILE]...'
 	 */
 	@Test
 	public void testJgrepMainLIOptionsNoSearchtermNoFile() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
-	    thrown.expectMessage("No key argument");
+	    thrown.expectMessage("Usage: jgrep [OPTION]... PATTERN [FILE]...");
 	    Jgrep.main("-l -i".split(" "));
 	}
 	
@@ -290,12 +288,12 @@ public class JgrepTest {
 	 * 		<br>&emsp;'./target/test-classes/secondInput.txt'
 	 * 
 	 * <p><b>expected output:</b>
-	 * 		<br>&emsp;IllegalArgumentException: 'Invalid file path: red'
+	 * 		<br>&emsp;IllegalArgumentException: 'jgrep: red: No such file or directory'
 	 */
 	@Test
 	public void testJgrepMainLIOptionsOneSearchtermWrongOrderLowercaseTwoFiles() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
-	    thrown.expectMessage("Invalid file path: red");
+	    thrown.expectMessage("jgrep: red: No such file or directory");
 		Jgrep.main("./target/test-classes/input.txt ./target/test-classes/secondInput.txt -l -i red".split(" "));
 	}
 	
@@ -315,7 +313,7 @@ public class JgrepTest {
 	@Test
 	public void testJgrepMainNoOptionsTwoSearchtermsLowercaseTwoFiles() throws IllegalArgumentException {
 	    thrown.expect(IllegalArgumentException.class);
-	    thrown.expectMessage("Invalid file path: green");
+	    thrown.expectMessage("jgrep: green: No such file or directory");
 		Jgrep.main("red green ./target/test-classes/input.txt ./target/test-classes/secondInput.txt".split(" "));
 	}
 
@@ -456,26 +454,4 @@ public class JgrepTest {
 		Jgrep.main("fLoWerS -i ./target/test-classes/input.txt ./target/test-classes/secondInput.txt ./target/test-classes/thirdInput.txt".split(" "));
 		Assert.assertEquals("./target/test-classes/input.txt:Roses are nice flowers.\n", outContent.toString());
 	}
-
-
-	// TODO Export Javadoc
-	
-	// Exercise examples
-		/*
-		 * TODO Implement special cases that might be problematic
-		 * - <Test idea> <(Expected result)>
-		 * 
-		 * Already implemented:
-		 * + Invalid parameters (FAIL: sys.exit -1)
-		 * + No search key (FAIL: sys.exit -2)
-		 * + Invalid paths (FAIL: sys.exit -3)
-		 * + Invalid search keys (? - Are there even invalid search characters?)
-		 * + Wrong order of arguments (PASS: Parameter placement shouldn't matter)
-		 * + Two search keys (FAIL: Second one should be interpreted as a path -> sys.exit -2)
-		 * + Same parameters twice (PASS: Should not matter. Boolean will be set from 'true' to 'true')
-		 * + write comments
-		 * + write some more tests for fine working examples?
-		 * + Write test for different file types. -> delete, cause it isn't working like expected. Or: Raise exception, when file isn't a .txt
-		 * 
-		 */
 }
