@@ -14,6 +14,12 @@ import org.junit.rules.ExpectedException;
 
 import de.se1p04.jgrep.Jgrep;
 
+/**
+ * Junit test for Jgrep class
+ * 
+ * @author Linard Hug, Timo Sutterer, Dominik Stoll
+ * @version 1.0
+ */
 public class JgrepTest {
 	
 	// Needed to access command-line-output via "outContent.toString()"
@@ -187,7 +193,7 @@ public class JgrepTest {
 	 * 		<br>&emsp;'./target/test-classes/thirdInput.txt'
 	 * 
 	 * <p><b>expected output:</b>
-	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:#!\"§$%&/()=?^€
+	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:#!\"§$%&amp;/()=?^€
 	 * 		<br>&emsp;./target/test-classes/thirdInput.txt:€$¥
 	 */
 	@Test
