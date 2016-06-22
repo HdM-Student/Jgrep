@@ -11,7 +11,13 @@ import java.util.ArrayList;
 
 
 public class Jgrep {
-	// Input
+	/** Input:
+	*
+	* <br>@param iO for case insensitive searches
+	* <br>@param lO for just showing filenames containing matches
+	* <br>@param key the searchterm that the program is searching
+	* <br>@param targets the files where the program is searching for the searchterm
+	*/
 	private boolean iO = false;
 	private boolean lO = false;
 	private String key;
@@ -25,9 +31,16 @@ public class Jgrep {
 							// after Constructor call.
 	}
 
-	// Constructor - prev. init()
+	/** Constructor - prev. init()<br>
+	* <br>@param args parameters given for more specific searches
+	*/
 	public Jgrep(String[] args) {
-		// Sorts parameters
+		/** Sorts Parameters:
+		* <br>case "-i": checks if parameter "-i" is given for case insensitive searches
+		* <br>case "-l": checks if parameter "-l": is given for just showing the filenames
+		* <br>default: if invalid parameter was given
+		*
+		*/
 		for (final String arg : args) {
 			if (arg.startsWith("-")) {
 				switch (arg) {
@@ -54,7 +67,10 @@ public class Jgrep {
 			throw new IllegalArgumentException("No key argument");
 		}
 
-		// Decides the case
+		/** Decides the case
+		* <br>- if no targets were given
+		* <br>- if at least one target was given
+		*/
 		if (targets.size() == 0) {
 			pipeline();
 		} else {
@@ -102,16 +118,20 @@ public class Jgrep {
 		String iLine = line;
 		String iKey = key;
 
-		// Pre-output
-		// -i option
+		/** Before output: Checking on -i option
+		* If -i option was given, line and key are put to lower case to search case insensitive
+		*/
 		if (iO) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
 		}
 
-		// Output
+		// Output: Checking if the line contains the searchterm
 		if (iLine.contains(iKey)) {
-			// -l option
+			/** Checking on -l option
+			* <br>- If -l option was given, only the filenames are output
+			* <br>- If not, the lines containing the searchterm are output
+			*/
 			if (lO) {
 				System.out.println(target);
 				return true;
