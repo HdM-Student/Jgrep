@@ -127,7 +127,7 @@ public class Jgrep {
 
 		/* Before output: Checking on -i option
 		 * If -i option was given, line and key are put to lower case to search case insensitive
-		*/
+		 */
 		if (iO) {
 			iLine = iLine.toLowerCase();
 			iKey = iKey.toLowerCase();
