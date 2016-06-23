@@ -29,7 +29,7 @@ public class Jgrep {
 	/**
 	 * Creates a Jgrep object and redirects the parameter to the constructor.
 	 * 
-	 * @param args parameters entered by the user.
+	 * @param args parameters entered by the user
 	 */
 	public static void main(String[] args) throws IllegalArgumentException {
 		new Jgrep(args); // Object will be destroyed immediately
@@ -49,7 +49,7 @@ public class Jgrep {
 	 * 
 
 	 * 
-	 * @param args parameters entered by the user.
+	 * @param args parameters entered by the user
 	 * 
 	 * @throws IllegalArgumentException If a wrong option was given
 	 * @throws IllegalArgumentException If no search term was given
