@@ -41,7 +41,7 @@ public class Jgrep {
 	 * 
 	 * <p>Sorts parameter args into options, search term and file paths.
 	 * <p>Checks if parameter "-i" is given for case insensitive searches
-	 * <br>Checks if parameter "-l" is given for just showing the filenames
+	 * <br>Checks if parameter "-l": is given for just showing the filenames
 	 * 
 	 * <p>Decides the case:
 	 * <br>&emsp;No file path: reads out of pipeline
