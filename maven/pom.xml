@@ -3,7 +3,6 @@
   
   <groupId>de.linard</groupId>
   <artifactId>JGrep</artifactId>
-  <version>0.1</version>
   <packaging>jar</packaging>
   
   <name>JGrep</name>
@@ -80,4 +79,7 @@
       
     </plugins>
   </build>
+  <version>1.0</version>
+  <description>Searches through given files line per line for a keyword.
+It outputs the lines that contain said keyword.</description>
 </project>
